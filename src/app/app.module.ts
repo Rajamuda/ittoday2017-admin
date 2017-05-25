@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
+import { AUTH_PROVIDERS, provideAuth } from 'angular2-jwt';
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -16,12 +17,14 @@ import { AppState, InternalStateType } from './app.service';
 import { GlobalState } from './global.state';
 import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
+import { DataService } from './data';
 
 
 // Application wide providers
 const APP_PROVIDERS = [
   AppState,
-  GlobalState
+  GlobalState,
+  DataService
 ];
 
 export type StoreType = {
@@ -50,7 +53,16 @@ export type StoreType = {
     routing
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    AUTH_PROVIDERS,
+    provideAuth({
+      headerName: "Authorization",
+      headerPrefix: "",
+      tokenName: "session",
+      globalHeaders: [{'Content-Type':'application/json'}],
+      noJwtError: true,
+      noTokenScheme: true
+    })
   ]
 })
 

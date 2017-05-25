@@ -1,0 +1,90 @@
+<div class="widgets">
+    <div class="row">
+        <ba-card title="News Publication" baCardClass="with-scroll" class="data-table-container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="label-control">Rows on page</label>
+                    <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
+                    <option [ngValue]="5">5</option>
+                    <option [ngValue]="10">10</option>
+                    <option [ngValue]="15">15</option>
+                </select>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <label class="col-sm-12 label-control">Sort by</label>
+                    </div>
+                    <div class="row">
+                        <div class="offset-sm-1 col-sm-5">
+                            <div class="row">
+                                <select class="form-control input-sm" [(ngModel)]="sortBy">
+                                    <option ngValue="judul_news">Title</option>
+                                    <option ngValue="isi_news">Content</option>
+                                    <option ngValue="createdAt">Published Date</option>
+                                    <option ngValue="updatedAt">Last Modified</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="offset-sm-1 col-sm-5">
+                            <div class="row">
+                                <select class="form-control input-sm" [(ngModel)]="sortOrder">
+                                    <option ngValue="asc">Ascending</option>
+                                    <option ngValue="desc">Descending</option>
+                                    <option ngValue="badValue">Bad value</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <!-- <div class="panel-heading">Berita yang dipublikasikan</div> -->
+                <div class="panel-heading"></div>
+                <table class="table table-striped" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%">
+                                <mfDefaultSorter by="judul_news">Title</mfDefaultSorter>
+                            </th>
+                            <th style="width: 40%">
+                                <mfDefaultSorter by="isi_news">Content</mfDefaultSorter>
+                            </th>
+                            <th style="width: 15%">
+                                <mfDefaultSorter by="createdAt">Published Date</mfDefaultSorter>
+                            </th>
+                            <th style="width: 15%">
+                                <mfDefaultSorter by="updatedAt">Last Modified</mfDefaultSorter>
+                            </th>
+                            <th style="width: 10%">Option</th>
+                        </tr>
+                        <tr>
+                            <th colspan="5">
+                                Filter by Title:
+                                <input class="form-control" [(ngModel)]="filterQuery" />
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of mf.data">
+                            <td>{{item.judul_news}}</td>
+                            <td [innerHtml]="item.isi_news | truncate : 20"></td>
+                            <td>{{item.createdAt | date:'short'}}</td>
+                            <td>{{item.updatedAt | date:'short'}}</td>
+                             <td>
+                                <button (click)="edit(item.id)" class="btn btn-info">Edit</button>
+                                <button (click)="remove(item.id)" class="btn btn-danger">Hapus</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </ba-card>
+    </div>
+</div>

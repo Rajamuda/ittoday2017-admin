@@ -6,6 +6,7 @@ import { BaImageLoaderService, BaThemePreloader, BaThemeSpinner } from './theme/
 import { BaThemeConfig } from './theme/theme.config';
 import { layoutPaths } from './theme/theme.constants';
 
+
 /*
  * App Component
  * Top Level Component
@@ -37,6 +38,7 @@ export class App {
     this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
       this.isMenuCollapsed = isCollapsed;
     });
+
   }
 
   public ngAfterViewInit(): void {

@@ -45,6 +45,50 @@ export const PAGES_MENU = [
         ]
       },
       {
+        path: 'editors',
+        data: {
+          menu: {
+            title: 'general.menu.editors',
+            icon: 'ion-edit',
+            selected: false,
+            expanded: false,
+            order: 100,
+          }
+        },
+        children: [
+          {
+            path: 'ckeditor',
+            data: {
+              menu: {
+                title: 'general.menu.ck_editor',
+              }
+            }
+          }
+        ]
+      },
+      {
+        path: 'components',
+        data: {
+          menu: {
+            title: 'general.menu.components',
+            icon: 'ion-gear-a',
+            selected: false,
+            expanded: false,
+            order: 250,
+          }
+        },
+        children: [
+          {
+            path: 'treeview',
+            data: {
+              menu: {
+                title: 'general.menu.tree_view',
+              }
+            }
+          }
+        ]
+      },
+      {
         path: 'charts',
         data: {
           menu: {
@@ -202,6 +246,82 @@ export const PAGES_MENU = [
                }
              }
            }
+        ]
+      },
+      {
+        path: 'maps',
+        data: {
+          menu: {
+            title: 'general.menu.maps',
+            icon: 'ion-ios-location-outline',
+            selected: false,
+            expanded: false,
+            order: 600,
+          }
+        },
+        children: [
+          {
+            path: 'googlemaps',
+            data: {
+              menu: {
+                title: 'general.menu.google_maps',
+              }
+            }
+          },
+          {
+            path: 'leafletmaps',
+            data: {
+              menu: {
+                title: 'general.menu.leaflet_maps',
+              }
+            }
+          },
+          {
+            path: 'bubblemaps',
+            data: {
+              menu: {
+                title: 'general.menu.bubble_maps',
+              }
+            }
+          },
+          {
+            path: 'linemaps',
+            data: {
+              menu: {
+                title: 'general.menu.line_maps',
+              }
+            }
+          }
+        ]
+      },
+      {
+        path: '',
+        data: {
+          menu: {
+            title: 'general.menu.pages',
+            icon: 'ion-document',
+            selected: false,
+            expanded: false,
+            order: 650,
+          }
+        },
+        children: [
+          {
+            path: ['/login'],
+            data: {
+              menu: {
+                title: 'general.menu.login'
+              }
+            }
+          },
+          {
+            path: ['/register'],
+            data: {
+              menu: {
+                title: 'general.menu.register'
+              }
+            }
+          }
         ]
       },
       {

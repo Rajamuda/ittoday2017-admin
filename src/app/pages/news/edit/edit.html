@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-12">
+   	<ba-card title="Edit News" baCardClass="with-scroll">
+			<form #form="ngForm">
+				<div class="form-group">
+			    <label>Judul</label>
+			    <input type="text" class="form-control" [(ngModel)]="newstitle" name="newstitle" placeholder="Judul">
+			  </div>
+		    <ckeditor [(ngModel)]="ckeditorContent" name="content" [config]="config"></ckeditor>
+		    <div class="form-group" style="padding-top: 10px">
+		    	<button [disabled]="!newstitle || !ckeditorContent" (click)="submit()" class="btn btn-danger">Submit</button>
+		    </div>
+		  </form>
+    </ba-card>
+  </div>
+</div>

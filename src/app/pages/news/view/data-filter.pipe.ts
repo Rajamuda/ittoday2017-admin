@@ -8,8 +8,8 @@ export class DataFilterPipe implements PipeTransform {
 
     transform(array: any[], query: string): any {
         if (query) {
-        		var row = (row) => alert(row.name);
-            return _.filter(array, row=>row.name.indexOf(query) > -1);
+        	// console.log()
+            return _.filter(array, row=>row.judul_news.indexOf(query) > -1);
         }
         return array;
     }

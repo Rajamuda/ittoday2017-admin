@@ -19,6 +19,9 @@
     },
     "menu": {
       "dashboard": "Dashboard",
+      "news": "News",
+      "news_child": "Published",
+      "publish": "New Publish",
       "editors": "Editors",
       "ck_editor": "CKEditor",
       "components": "Components",
