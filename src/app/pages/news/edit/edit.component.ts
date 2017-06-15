@@ -39,12 +39,12 @@ export class Edit {
   }
 
   public submit(){
-  	let creds = {judul_news: this.newstitle, isi_news: this.ckeditorContent};
+  	let creds = {id: this.id, judul_news: this.newstitle, isi_news: this.ckeditorContent};
   	this.authHttp.post(this.link.urlNewsEdit, creds).subscribe(res => {
   		let data = res.json();
 
   		if(data.status){
-  			swal('Berhasil', 'Berita sudah dipublikasikan', 'success');
+  			swal('Berhasil', 'Berita sudah diperbarui', 'success');
   			this.router.navigate(['/pages/news/view']);
   		}else if(data.err_code && data.err_code == 401){
         swal('Silakan login lagi');

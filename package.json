@@ -16,7 +16,7 @@
     "ng": "ng",
     "rimraf": "rimraf",
     "changelog": "standard-changelog",
-    "start": "ng serve --port 3000",
+    "start": "ng serve --port 3001",
     "start:hmr": "ng serve --hmr",
     "start:aot": "ng serve --aot",
     "start:prod": "ng serve --prod",

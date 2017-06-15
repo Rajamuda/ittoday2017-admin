@@ -1,0 +1,82 @@
+<div class="widgets">
+    <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12" *ngIf="userinfo">
+
+      <ba-card baCardClass="banner-column-panel">
+      	<div class="section"></div>
+        <div class="section">
+          <h2>User Information</h2>
+          <div class="separator"></div>
+
+          <div class="row">
+            <div class="col-sm-5">
+              <h4>Identity</h4>
+              <div class="img-wrapper"><img src="{{link.baseUrl}}{{userinfo.identitas_user}}" onerror="this.onerror=null;this.src='http://www.freeiconspng.com/uploads/no-image-icon-11.PNG';" alt=""/></div>
+            </div>
+            <div class="col-sm-7">
+              <h4>Biodata</h4>
+              <table>
+              	<tr>
+              		<td>Name</td>
+              		<td>:&nbsp;</td>
+              		<td>{{userinfo.nama_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Gender</td>
+              		<td>:&nbsp;</td>
+              		<td><span *ngIf="userinfo.kelamin_user == 'L'">Male</span><span *ngIf="userinfo.kelamin_user == 'P'">Female</span></td>
+              	</tr>
+              	<tr>
+              		<td>Email</td>
+              		<td>:&nbsp;</td>
+              		<td>{{userinfo.email_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Phone</td>
+              		<td>:&nbsp;</td>
+              		<td>+62{{userinfo.telepon_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Address</td>
+              		<td>:&nbsp;</td>
+              		<td>{{userinfo.alamat_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Institution</td>
+              		<td>:&nbsp;</td>
+              		<td>{{userinfo.institusi_user}} / <span *ngIf="userinfo.tingkat_user == 'S1'">(Mahasiswa)</span><span *ngIf="userinfo.tingkat_user == 'SMA'">(SMA/SMK Sederajat)</span><span *ngIf="userinfo.tingkat_user == 'Umum'">(Umum)</span></td>
+              	</tr>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+          	<div class="col-sm-12">
+          		<h4>Registered in</h4>
+          		<span *ngIf="!userevent.hack && !userevent.apps && !userevent.seminar">
+          			Not participating on any event yet
+          		</span>
+          		<span *ngIf="userevent.hack">
+          			<a [routerLink]="['/pages/registrant/hacktoday', userevent.team_hack_id]" class="btn btn-info">HackToday ({{userevent.team_hack_name}})</a>
+          		</span>
+          		<span *ngIf="userevent.apps">
+          			<a [routerLink]="['/pages/registrant/appstoday', userevent.team_apps_id]" class="btn btn-info">AppsToday ({{userevent.team_apps_name}})</a>
+          		</span>
+          		<span *ngIf="userevent.seminar">
+          			<button type="button" class="btn btn-info">Seminar</button>
+          		</span>
+          	</div>
+          </div>
+          <div class="separator"></div>
+         	<h2>Options</h2>
+         	<div class="separator"></div>
+          <div class="row">
+          	<div class="col-sm-12">
+	          	<button class="btn btn-success">Send custom e-mail</button>
+	          	<button class="btn btn-danger">Delete user</button>
+          	</div>
+          </div>
+        </div>
+      </ba-card>
+    </div>
+  </div>
+</div>

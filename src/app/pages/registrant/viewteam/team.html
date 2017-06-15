@@ -1,0 +1,164 @@
+<div class="widgets">
+    <div class="row">
+    <div class="col-lg-12 col-sm-12 col-12" *ngIf="teaminfo">
+
+      <ba-card baCardClass="banner-column-panel">
+        <div class="banner">
+          <div class="large-banner-wrapper">
+            <img *ngIf="event === 'hack'" src="{{ ( 'app/typography/banner.png' | baAppPicture ) }}" alt=""/>
+            <img *ngIf="event === 'apps'" src="{{ ( 'app/typography/banner.png' | baAppPicture ) }}" alt=""/>
+          </div>
+          <div class="banner-text-wrapper">
+            <div class="banner-text">
+              <h1><span *ngIf="event === 'hack'">HackToday</span><span *ngIf="event === 'apps'">AppsToday</span> Team</h1>
+              <h1>"{{teaminfo.nama_team}}"</h1>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <h2>Team Information</h2>
+          <div class="separator"></div>
+          <div *ngIf="event == 'apps'">
+          	<h3>Apps Name: <span *ngIf="teaminfo.nama_app != null">{{teaminfo.nama_app}}</span><span *ngIf="teaminfo.nama_app == null">-</span></h3>
+          	<h3>Proposal: <a href="{{teaminfo.proposal_app}}" *ngIf="teaminfo.proposal_app != null">Link</a><span *ngIf="teaminfo.proposal_app == null">-</span></h3>
+          </div>
+          <h3>Token: {{teaminfo.token_team}}</h3>
+          <div class="separator"></div>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <h4>Leader</h4>
+              <div class="img-wrapper"><img src="{{link.baseUrl}}{{leader[0].identitas_user}}" onerror="this.onerror=null;this.src='http://www.freeiconspng.com/uploads/no-image-icon-11.PNG';" alt=""/></div>
+              <table>
+              	<tr>
+              		<td>Name</td>
+              		<td>:&nbsp;</td>
+              		<td>{{leader[0].nama_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Gender</td>
+              		<td>:&nbsp;</td>
+              		<td><span *ngIf="leader[0].kelamin_user == 'L'">Male</span><span *ngIf="leader[0].kelamin_user == 'P'">Female</span></td>
+              	</tr>
+              	<tr>
+              		<td>Email</td>
+              		<td>:&nbsp;</td>
+              		<td>{{leader[0].email_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Phone</td>
+              		<td>:&nbsp;</td>
+              		<td>+62{{leader[0].telepon_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Address</td>
+              		<td>:&nbsp;</td>
+              		<td>{{leader[0].alamat_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Institution</td>
+              		<td>:&nbsp;</td>
+              		<td>{{leader[0].institusi_user}} / <span *ngIf="leader[0].tingkat_user == 'S1'">(Mahasiswa)</span><span *ngIf="leader[0].tingkat_user == 'SMA'">(SMA/SMK Sederajat)</span><span *ngIf="leader[0].tingkat_user == 'Umum'">(Umum)</span></td>
+              	</tr>
+              </table>
+            </div>
+            <div class="col-sm-4" *ngIf="member[0]">
+              <h4>Member 1</h4>
+              <div class="img-wrapper"><img src="{{link.baseUrl}}{{member[0].identitas_user}}" onerror="this.onerror=null;this.src='http://www.freeiconspng.com/uploads/no-image-icon-11.PNG';" alt=""/></div>
+              <table>
+              	<tr>
+              		<td>Name</td>
+              		<td>:&nbsp;</td>
+              		<td>{{member[0].nama_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Gender</td>
+              		<td>:&nbsp;</td>
+              		<td><span *ngIf="member[0].kelamin_user == 'L'">Male</span><span *ngIf="member[0].kelamin_user == 'P'">Female</span></td>
+              	</tr>
+              	<tr>
+              		<td>Email</td>
+              		<td>:&nbsp;</td>
+              		<td>{{member[0].email_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Phone</td>
+              		<td>:&nbsp;</td>
+              		<td>+62{{member[0].telepon_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Address</td>
+              		<td>:&nbsp;</td>
+              		<td>{{member[0].alamat_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Institution</td>
+              		<td>:&nbsp;</td>
+              		<td>{{member[0].institusi_user}} / <span *ngIf="member[0].tingkat_user == 'S1'">(Mahasiswa)</span><span *ngIf="member[0].tingkat_user == 'SMA'">(SMA/SMK Sederajat)</span><span *ngIf="member[0].tingkat_user == 'Umum'">(Umum)</span></td>
+              	</tr>
+              </table>
+            </div>
+            <div class="col-sm-4" *ngIf="member[1]">
+              <h4>Member 2</h4>
+              <div class="img-wrapper"><img src="{{link.baseUrl}}{{member[1].identitas_user}}" onerror="this.onerror=null;this.src='http://www.freeiconspng.com/uploads/no-image-icon-11.PNG';" alt=""/></div>
+              <table>
+              	<tr>
+              		<td>Name</td>
+              		<td>:&nbsp;</td>
+              		<td>{{member[1].nama_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Gender</td>
+              		<td>:&nbsp;</td>
+              		<td><span *ngIf="member[1].kelamin_user == 'L'">Male</span><span *ngIf="member[1].kelamin_user == 'P'">Female</span></td>
+              	</tr>
+              	<tr>
+              		<td>Email</td>
+              		<td>:&nbsp;</td>
+              		<td>{{member[1].email_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Phone</td>
+              		<td>:&nbsp;</td>
+              		<td>+62{{member[1].telepon_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Address</td>
+              		<td>:&nbsp;</td>
+              		<td>{{member[1].alamat_user}}</td>
+              	</tr>
+              	<tr>
+              		<td>Institution</td>
+              		<td>:&nbsp;</td>
+              		<td>{{member[1].institusi_user}} / <span *ngIf="member[1].tingkat_user == 'S1'">(Mahasiswa)</span><span *ngIf="member[1].tingkat_user == 'SMA'">(SMA/SMK Sederajat)</span><span *ngIf="member[1].tingkat_user == 'Umum'">(Umum)</span></td>
+              	</tr>
+              </table>
+            </div>
+          </div>
+          <div class="separator"></div>
+         	<h2>Options</h2>
+         	<div class="separator"></div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div *ngIf="event == 'apps'">
+                <button *ngIf="teaminfo.semifinalis_team == false" class="btn btn-info">Qualify for SEMIFINAL</button>
+                <button *ngIf="teaminfo.semifinalis_team == true && teaminfo.finalis_team == false" class="btn btn-danger">Unqualify for SEMIFINAL</button>
+                <button *ngIf="teaminfo.semifinalis_team == true && teaminfo.finalis_team == false" class="btn btn-info">Qualify for FINAL</button>
+                <button *ngIf="teaminfo.finalis_team == true" class="btn btn-danger">Unqualify for FINAL</button>
+              </div>
+              <div *ngIf="event == 'hack'">
+                <button *ngIf="teaminfo.finalis_team == false" class="btn btn-info">Qualify for FINAL</button>
+                <button *ngIf="teaminfo.finalis_team == true" class="btn btn-danger">Unqualify for FINAL</button>
+              </div>
+            </div>
+          	<div class="col-sm-6" style="text-align: right">
+	          	<button class="btn btn-success">Send custom e-mail</button>
+
+	          	<button class="btn btn-danger">Delete team</button>
+          	</div>
+          </div>
+        </div>
+      </ba-card>
+    </div>
+  </div>
+</div>

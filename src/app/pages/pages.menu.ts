@@ -45,6 +45,44 @@ export const PAGES_MENU = [
         ]
       },
       {
+        path: 'registrant',
+        data: {
+          menu: {
+            title: 'general.menu.registrant',
+            icon: 'ion-person-stalker',
+            selected: false,
+            expanded: false,
+            order: 100,
+          }
+        },
+        children: [
+          {
+            path: 'participant',
+            data: {
+              menu: {
+                title: 'general.menu.reg_all',
+              }
+            }
+          },
+          {
+            path: 'appstoday',
+            data: {
+              menu: {
+                title: 'general.menu.reg_apps',
+              }
+            }
+          },
+          {
+            path: 'hacktoday',
+            data: {
+              menu: {
+                title: 'general.menu.reg_hack',
+              }
+            }
+          }
+        ]
+      },
+      {
         path: 'charts',
         data: {
           menu: {

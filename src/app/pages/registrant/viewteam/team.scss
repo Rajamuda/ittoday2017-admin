@@ -1,0 +1,22 @@
+@import '../../../theme/sass/conf/conf';
+:host /deep/ .widgets {
+    .data-table-container {
+        width: 100%;
+        .panel-heading {
+            margin-top: 25px;
+        }
+    }
+}
+
+.large-banner-wrapper{
+	height: 180px;
+}
+
+.banner-text-wrapper{
+	margin-top: -210px;
+	height: 220px;
+}
+
+.banner-text{
+	padding: 20px 90px 20px;
+}

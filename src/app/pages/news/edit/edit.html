@@ -6,7 +6,7 @@
 			    <label>Judul</label>
 			    <input type="text" class="form-control" [(ngModel)]="newstitle" name="newstitle" placeholder="Judul">
 			  </div>
-		    <ckeditor [(ngModel)]="ckeditorContent" name="content" [config]="config"></ckeditor>
+		    <ckeditor *ngIf="ckeditorContent != ''" [(ngModel)]="ckeditorContent" name="content" [config]="config"></ckeditor>
 		    <div class="form-group" style="padding-top: 10px">
 		    	<button [disabled]="!newstitle || !ckeditorContent" (click)="submit()" class="btn btn-danger">Submit</button>
 		    </div>

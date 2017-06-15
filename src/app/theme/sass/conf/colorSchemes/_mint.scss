@@ -1,8 +1,8 @@
 $default: #ffffff;
 $body-bg: #F0F3F4;
 
-$default-text: #666666;
-$content-text: $default-text;
+$default-text: #fff;
+$content-text: #666;
 $help-text: #949494;
 
 $label-text: #ffffff;
@@ -58,6 +58,21 @@ $hoverlink: $primary-dark;
 
 @mixin body-bg() {
   background-color: $body-bg;
+
+  $mainBgUrl: $assets-root + $images-root + 'peachy-bg.jpg';
+
+  &::before {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url($mainBgUrl) no-repeat center center;
+    background-size: cover;
+    will-change: transform;
+    z-index: 0;
+  }
 }
 @mixin additional-bg() {
   //display: block; // additional background layer, hidden by default

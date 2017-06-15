@@ -1,7 +1,7 @@
 @import "../../../theme/sass/conf/conf";
 
 :host /deep/.pie-charts {
-  color: $content-text;
+  color: #000;
 
   .pie-chart-item-container {
     position: relative;
