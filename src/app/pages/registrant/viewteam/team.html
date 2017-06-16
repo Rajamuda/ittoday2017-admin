@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class="section">
-          <h2>Team Information</h2>
+          <h2>Team Information <span *ngIf="teaminfo.diskualifikasi_team" style="color:red">[DISQUALIFIED]</span></h2>
           <div class="separator"></div>
           <div *ngIf="event == 'apps'">
           	<h3>Apps Name: <span *ngIf="teaminfo.nama_app != null">{{teaminfo.nama_app}}</span><span *ngIf="teaminfo.nama_app == null">-</span></h3>
@@ -140,21 +140,22 @@
          	<div class="separator"></div>
           <div class="row">
             <div class="col-sm-6">
-              <div *ngIf="event == 'apps'">
-                <button *ngIf="teaminfo.semifinalis_team == false" class="btn btn-info">Qualify for SEMIFINAL</button>
-                <button *ngIf="teaminfo.semifinalis_team == true && teaminfo.finalis_team == false" class="btn btn-danger">Unqualify for SEMIFINAL</button>
-                <button *ngIf="teaminfo.semifinalis_team == true && teaminfo.finalis_team == false" class="btn btn-info">Qualify for FINAL</button>
-                <button *ngIf="teaminfo.finalis_team == true" class="btn btn-danger">Unqualify for FINAL</button>
+              <div *ngIf="event == 'apps' && !teaminfo.diskualifikasi_team">
+                <button (click)="qualify(true,'SEMIFINAL')" *ngIf="teaminfo.semifinalis_team == false" class="btn btn-info">Qualify for SEMIFINAL</button>
+                <button (click)="qualify(false,'SEMIFINAL')" *ngIf="teaminfo.semifinalis_team == true && teaminfo.finalis_team == false" class="btn btn-danger">Unqualify for SEMIFINAL</button>
+                <button (click)="qualify(true,'FINAL')" *ngIf="teaminfo.semifinalis_team == true && teaminfo.finalis_team == false" class="btn btn-info">Qualify for FINAL</button>
+                <button (click)="qualify(false,'FINAL')" *ngIf="teaminfo.finalis_team == true" class="btn btn-danger">Unqualify for FINAL</button>
               </div>
-              <div *ngIf="event == 'hack'">
-                <button *ngIf="teaminfo.finalis_team == false" class="btn btn-info">Qualify for FINAL</button>
-                <button *ngIf="teaminfo.finalis_team == true" class="btn btn-danger">Unqualify for FINAL</button>
+              <div *ngIf="event == 'hack' && !teaminfo.diskualifikasi_team">
+                <button (click)="qualify(true)" *ngIf="teaminfo.finalis_team == false" class="btn btn-info">Qualify for FINAL</button>
+                <button (click)="qualify(false)" *ngIf="teaminfo.finalis_team == true" class="btn btn-danger">Unqualify for FINAL</button>
               </div>
             </div>
           	<div class="col-sm-6" style="text-align: right">
 	          	<button class="btn btn-success">Send custom e-mail</button>
 
-	          	<button class="btn btn-danger">Delete team</button>
+	          	<button (click)="disqualify(true)" *ngIf="teaminfo.diskualifikasi_team == false" class="btn btn-danger">Disqualify Team</button>
+              <button (click)="disqualify(false)" *ngIf="teaminfo.diskualifikasi_team == true" class="btn btn-danger">Undo Disqualifying</button>
           	</div>
           </div>
         </div>

@@ -28,7 +28,13 @@ export class Participant {
    		
    		if(data.status){
    			this.users = data.data;
-   		}
+   		}else{
+          if(data.err_code && data.err_code == 401){
+            swal('Session Expired', 'Please Login Again!', 'warning');
+            localStorage.removeItem('session');
+            this.router.navigate(['/login']);
+          }
+        }
 
    	}, err => {
    		swal('No Connection', 'Check your internet connection' , 'error');

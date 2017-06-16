@@ -18,12 +18,17 @@ export class DataService{
 
 	public urlShowAllUser = this.baseUrl+'/api/user/viewall';
 	public urlShowCurrUser = this.baseUrl+'/api/user/viewsingle/'
+	public urlInactivateUser = this.baseUrl+'/api/user/inactivateuser';
 
 	public urlAppTeamAll = this.baseUrl+'/api/appteam/all';
 	public urlAppTeamSingle = this.baseUrl+'/api/appteam/team/';
+	public urlAppTeamQualify = this.baseUrl+'/api/appteam/qualify';
+	public urlAppTeamDisqualify = this.baseUrl+'/api/appteam/disqualify';
 
 	public urlHackTeamAll = this.baseUrl+'/api/hackteam/all';
 	public urlHackTeamSingle = this.baseUrl+'/api/hackteam/team/';
+	public urlHackTeamQualify = this.baseUrl+'/api/hackteam/qualify';
+	public urlHackTeamDisqualify = this.baseUrl+'/api/hackteam/disqualify';
 
 
 	loginAnnounced$ = this.isLoggedIn.asObservable();

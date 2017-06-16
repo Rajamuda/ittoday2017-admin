@@ -71,7 +71,7 @@
                     <tbody>
                         <tr *ngFor="let item of mf.data; let j=index">
                             <td>{{(mf.activePage-1)*10+(j+1)}}</td>
-                            <td>{{item.nama_team}}</td>
+                            <td><span *ngIf="item.diskualifikasi_team" style="color:red">[DISQUALIFIED]&nbsp;</span>{{item.nama_team}}</td>
                             <td>{{item.nama_app}}</td>
                             <td *ngIf="item.proposal_app != null"><a href="{{item.proposal_app}}">Link</a></td>
                             <td *ngIf="item.proposal_app == null">Not Available</td>
