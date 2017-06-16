@@ -53,7 +53,7 @@
           	<div class="col-sm-12">
           		<h4>Registered in</h4>
           		<span *ngIf="!userevent.hack && !userevent.apps && !userevent.seminar">
-          			Not participating on any event yet
+          			Not participating in any event yet
           		</span>
           		<span *ngIf="userevent.hack">
           			<a [routerLink]="['/pages/registrant/hacktoday', userevent.team_hack_id]" class="btn btn-info">HackToday ({{userevent.team_hack_name}})</a>

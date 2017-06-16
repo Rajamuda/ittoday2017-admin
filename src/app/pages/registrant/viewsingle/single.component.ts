@@ -11,9 +11,9 @@ import {DataService} from '../../../data';
   styleUrls: ['./single.scss']
 })
 export class Single {
-	private userinfo: any;
-	private userevent: any;
-	private userid: number;
+	userinfo: any;
+	userevent: any;
+	userid: number;
 
   constructor(public authHttp: AuthHttp, public route:ActivatedRoute, public router:Router, public link:DataService) {
     this.route.params.subscribe(params => {

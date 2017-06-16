@@ -13,6 +13,7 @@ import { Registrant } from './registrant.component';
 import { Participant } from './participant/participant.component';
 import { AppsToday } from './appstoday/appstoday.component';
 import { HackToday } from './hacktoday/hacktoday.component';
+import { Seminar } from './seminar/seminar.component';
 import { Single } from './viewsingle/single.component';
 import { Team } from './viewteam/team.component';
 
@@ -30,6 +31,7 @@ import { Team } from './viewteam/team.component';
     Participant,
     AppsToday,
     HackToday,
+    Seminar,
     Single,
     Team,
     DataFilterPipe,

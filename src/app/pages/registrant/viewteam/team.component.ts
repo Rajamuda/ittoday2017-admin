@@ -11,11 +11,11 @@ import {DataService} from '../../../data';
   styleUrls: ['./team.scss']
 })
 export class Team {
-	private teamid: string;
-  private teaminfo: any;
-  private leader: any;
-  private member: any;
-  private event: string;
+	teamid: string;
+  teaminfo: any;
+  leader: any;
+  member: any;
+  event: string;
 
   constructor(public authHttp: AuthHttp, public route:ActivatedRoute, public router:Router, public link:DataService) {
   	this.route.params.subscribe(params => {

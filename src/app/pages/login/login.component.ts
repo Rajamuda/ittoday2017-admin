@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AuthHttp} from 'angular2-jwt';
+import swal from 'sweetalert2';
 import {DataService} from '../../data';
 
 @Component({
@@ -40,6 +41,8 @@ export class Login {
         if(data.status){
           localStorage.setItem('session',data.token);
           this.router.navigate(['/pages/dashboard']);
+        }else{
+          swal('Oops', 'Wrong login credentials', 'error');
         }
       })
     }

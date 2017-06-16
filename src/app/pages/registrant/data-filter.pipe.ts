@@ -9,10 +9,21 @@ export class DataFilterPipe implements PipeTransform {
     if (query) {
     	// console.log()
     	var filterKeys = _.keys(array[0]);
-      console.log(filterKeys);
+      var chk = 0;
+
+      if(array[0].user){
+        filterKeys = _.keys(array[0].user);
+        chk = 1;
+      }
+
     	if(filterKeys.indexOf('nama_team') != -1){
      	 	return _.filter(array, row=>row[filterKeys[1]].indexOf(query) > -1);
     	}
+
+      if(chk == 1){
+        return _.filter(array, row=>row.user[filterKeys[0]].indexOf(query) > -1);
+      }
+
       return _.filter(array, row=>row[filterKeys[0]].indexOf(query) > -1);
     }
     return array;

@@ -30,6 +30,8 @@ export class DataService{
 	public urlHackTeamQualify = this.baseUrl+'/api/hackteam/qualify';
 	public urlHackTeamDisqualify = this.baseUrl+'/api/hackteam/disqualify';
 
+	public urlSeminarAll = this.baseUrl+'/api/seminar/all';
+
 
 	loginAnnounced$ = this.isLoggedIn.asObservable();
 
