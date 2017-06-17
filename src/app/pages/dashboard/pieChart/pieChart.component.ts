@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-
+import {Http} from '@angular/http';
+import {DataService} from '../../../data';
 import {PieChartService} from './pieChart.service';
 
 import 'easy-pie-chart/dist/jquery.easypiechart.js';
@@ -12,11 +13,40 @@ import 'easy-pie-chart/dist/jquery.easypiechart.js';
 // TODO: move easypiechart to component
 export class PieChart {
 
-  public charts: Array<Object>;
+  public charts = [
+      {
+        description: 'Peserta',
+        stats: '',
+        desc: 'orang',
+        icon: 'person',
+      }, {
+        description: 'HackToday',
+        stats: '',
+        desc: 'tim',
+        icon: 'money',
+      }, {
+        description: 'AppsToday',
+        stats: '',
+        desc: 'tim',
+        icon: 'face',
+      }, {
+        description: 'Seminar',
+        stats: '',
+        desc: 'orang',
+        icon: 'refresh',
+      }
+    ];;
   private _init = false;
 
-  constructor(private _pieChartService: PieChartService) {
-    this.charts = this._pieChartService.getData();
+  constructor(private _pieChartService: PieChartService, public http:Http, public link:DataService) {
+    this.http.get(this.link.urlCountAll)
+      .subscribe(res => {
+        let data = res.json();
+        this.charts[0].stats = data.user;
+        this.charts[1].stats = data.hack;
+        this.charts[2].stats = data.app;
+        this.charts[3].stats = data.seminar;
+      })
   }
 
   ngAfterViewInit() {
@@ -34,10 +64,10 @@ export class PieChart {
       chart.easyPieChart({
         easing: 'easeOutBounce',
         onStep: function (from, to, percent) {
-          jQuery(this.el).find('.percent').text(Math.round(percent));
+          jQuery(this.el).find('.im').text(Math.round(percent));
         },
         barColor: jQuery(this).attr('data-rel'),
-        trackColor: 'rgba(0,0,0,0)',
+        trackColor: 'rgba(32,158,145,0)',
         size: 84,
         scaleLength: 0,
         animation: 2000,
@@ -48,10 +78,10 @@ export class PieChart {
   }
 
   private _updatePieCharts() {
-    let getRandomArbitrary = (min, max) => { return Math.random() * (max - min) + min; };
+    // let getRandomArbitrary = (min, max) => { return Math.random() * (max - min) + min; };
 
-    jQuery('.pie-charts .chart').each(function(index, chart) {
-      jQuery(chart).data('easyPieChart').update(getRandomArbitrary(55, 90));
-    });
+    // jQuery('.pie-charts .chart').each(function(index, chart) {
+    //   jQuery(chart).data('easyPieChart').update(getRandomArbitrary(55, 90));
+    // });
   }
 }

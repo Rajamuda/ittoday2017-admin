@@ -19,6 +19,7 @@
                             <div class="row">
                                 <select class="form-control input-sm" [(ngModel)]="sortBy">
                                     <option ngValue="nama_team">Team Name</option>
+                                    <option ngValue="finalis_team">Final</option>
                                 </select>
                             </div>
                         </div>
@@ -50,7 +51,7 @@
                                 <mfDefaultSorter by="writeup_hack">WriteUp</mfDefaultSorter>
                             </th>
                             <th style="width: 5%">
-                               Final
+                               <mfDefaultSorter by="finalis_team">Final</mfDefaultSorter>
                             </th>
                             <th style="width: 10%" class="text-right">Option</th>
                         </tr>

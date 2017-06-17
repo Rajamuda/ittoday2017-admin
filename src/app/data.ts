@@ -9,7 +9,10 @@ export class DataService{
 	public id_user: number;
 	public isLoggedIn = new Subject<boolean>();
 
-	public baseUrl = 'http://localhost:4200';
+	public baseUrl = 'https://ittoday.web.id';
+
+	public urlCountAll = this.baseUrl+'/api/user/countall';
+
 	public urlLogin = this.baseUrl+'/api/user/loginadmin';
 	public urlNews = this.baseUrl+'/api/news';
 	public urlNewsCreate = this.baseUrl+'/api/news/create';
@@ -24,6 +27,7 @@ export class DataService{
 	public urlAppTeamSingle = this.baseUrl+'/api/appteam/team/';
 	public urlAppTeamQualify = this.baseUrl+'/api/appteam/qualify';
 	public urlAppTeamDisqualify = this.baseUrl+'/api/appteam/disqualify';
+	public urlAppTeamPayment = this.baseUrl+'/api/appteam/confirmpayment';
 
 	public urlHackTeamAll = this.baseUrl+'/api/hackteam/all';
 	public urlHackTeamSingle = this.baseUrl+'/api/hackteam/team/';

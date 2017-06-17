@@ -75,6 +75,37 @@ export class Team {
      })
   }
 
+  confirmpayment(status){
+    let creds = {id: this.teamid, status: status};
+
+    this.confirm().then(res => {
+      this.authHttp.post(this.link.urlAppTeamPayment, creds)
+        .subscribe(res => {
+          let data = res.json();
+
+          if(data.status){
+            if(status){
+              swal('Success', 'Payment <b>Confirmed</b>', 'success');
+              this.teaminfo.status_pembayaran_app = true;
+            }else{
+              swal('Success', 'Payment <b>Unconfirmed</b>', 'success');
+              this.teaminfo.status_pembayaran_app = false;
+            }
+          }else{
+            if(data.err_code && data.err_code == 401){
+              swal('Session Expired', 'Please Login Again!', 'warning');
+              localStorage.removeItem('session');
+              this.router.navigate(['/login']);
+            }
+          }
+        }, err => {
+         swal('No Connection', 'Check your internet connection' , 'error');
+       })
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
+
   disqualify(status){
     let creds = {id: this.teamid, status: status};
     var link;

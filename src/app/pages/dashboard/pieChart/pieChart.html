@@ -3,13 +3,14 @@
   <ba-card *ngFor="let chart of charts" class="pie-chart-item-container col-xlg-3 col-lg-3 col-md-6 col-sm-12 col-12">
 
     <div class="pie-chart-item">
-      <div class="chart" data-rel="rgba(0,0,0,1)" data-percent="60">
+      <div class="chart" data-rel="rgba(32,158,145,1)" data-percent="100">
       <!--  [attr.data-rel]="chart.color" -->
-        <span class="percent"></span>
+        <span class="percent"><i class="ion-person-stalker"></i></span>
+        <!-- <span><i class="ion-person-stalker"></i></span> -->
       </div>
       <div class="description">
         <div translate>{{ chart.description }}</div>
-        <div class="description-stats">{{ chart.stats }}</div>
+        <div class="description-stats">{{ chart.stats }} {{chart.desc}}</div>
       </div>
       <i class="chart-icon i-{{ chart.icon }}"></i>
     </div>

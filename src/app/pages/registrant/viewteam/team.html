@@ -135,6 +135,21 @@
               </table>
             </div>
           </div>
+          <div *ngIf="event == 'apps' && teaminfo.semifinalis_team == true">
+            <div class="separator"></div>
+            <h2>Payment <small style="color: green" *ngIf="teaminfo.status_pembayaran_app == true">[Pembayaran Terkonfirmasi]</small></h2>
+            <div class="separator"></div>
+            <div *ngIf="teaminfo.pembayaran_app" style="text-align: center"> 
+              <img src="{{link.baseUrl}}{{teaminfo.pembayaran_app}}" style="height: 300px">
+              <div>
+                <button (click)="confirmpayment(true)" *ngIf="!teaminfo.status_pembayaran_app" class="btn btn-success">Confirm Payment</button>
+                <button (click)="confirmpayment(false)" *ngIf="teaminfo.status_pembayaran_app == true" class="btn btn-danger">Revert Payment Confirmation</button>
+              </div>
+            </div>
+            <div *ngIf="!teaminfo.pembayaran_app">
+              <h4><i>Belum mengunggah bukti pembayaran</i></h4>
+            </div>
+          </div>
           <div class="separator"></div>
          	<h2>Options</h2>
          	<div class="separator"></div>
