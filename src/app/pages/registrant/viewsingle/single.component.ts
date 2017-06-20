@@ -4,6 +4,7 @@ import {RequestOptions} from '@angular/http';
 import {Router,ActivatedRoute} from '@angular/router';
 import swal from 'sweetalert2';
 import {DataService} from '../../../data';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'single',
@@ -15,7 +16,8 @@ export class Single {
 	userevent: any;
 	userid: number;
 
-  constructor(public authHttp: AuthHttp, public route:ActivatedRoute, public router:Router, public link:DataService) {
+  constructor(public authHttp: AuthHttp, public route:ActivatedRoute, public router:Router, 
+              public link:DataService, public modalService: NgbModal) {
     this.route.params.subscribe(params => {
   		this.userid = params['id'];
   	})

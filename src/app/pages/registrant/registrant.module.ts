@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { NgaModule } from '../../theme/nga.module';
+import { NgbDropdownModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { DataTableModule } from "angular2-datatable";
 import { DataFilterPipe } from './data-filter.pipe';
@@ -24,6 +25,8 @@ import { Team } from './viewteam/team.component';
     NgaModule,
     CKEditorModule,
     routing,
+    NgbDropdownModule,
+    NgbModalModule,
     DataTableModule
   ],
   declarations: [

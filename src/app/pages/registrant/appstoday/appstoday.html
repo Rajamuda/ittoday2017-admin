@@ -37,6 +37,10 @@
                         </div>
                     </div>
                 </div>
+                <div class="offset-sm-4 col-sm-2">
+                    <label class="label-control">Options</label>
+                    <button type="button" (click)="generateCsv()" class="btn btn-success">Export to CSV</button>
+                </div>
             </div>
             <div class="panel panel-default">
                 <!-- <div class="panel-heading">Berita yang dipublikasikan</div> -->
@@ -77,7 +81,7 @@
                     <tbody>
                         <tr *ngFor="let item of mf.data; let j=index">
                             <td>{{(mf.activePage-1)*10+(j+1)}}</td>
-                            <td><span *ngIf="item.diskualifikasi_team" style="color:red">[DISQUALIFIED]&nbsp;</span>{{item.nama_team}}</td>
+                            <td><span *ngIf="item.diskualifikasi_team" style="color:red">[DISQUALIFIED]&nbsp;</span>{{item.nama_team}} <small *ngIf="item.pembayaran_app && !item.status_pembayaran_app" style="color:red">(konfirmasi pembayaran)</small></td>
                             <td>{{item.nama_app}}</td>
                             <td *ngIf="item.proposal_app != null"><a href="{{item.proposal_app}}">Link</a></td>
                             <td *ngIf="item.proposal_app == null">-</td>
